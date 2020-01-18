@@ -10,6 +10,6 @@
 
 * build jar / run jar
 
-    $ mvnw clean package
+    $ mvnw clean package  
     $ java -jar Gunclock-0.0.1-SNAPSHOT.jar  [--server.port=8080]
 
