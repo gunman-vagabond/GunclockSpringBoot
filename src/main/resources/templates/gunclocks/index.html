@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <title>Listing Gunclocks</title>
+<!--
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+-->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Listing Gunclocks</h1>
+      <table class="table" border="1">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>色</th>
+            <th>サイズ</th>
+            <th>生成日付</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="gunclock:${gunclocks}" th:object="${gunclock}">
+            <td th:text="*{id}"></td>
+            <td th:text="*{color}" th:bgcolor="*{color}"></td>
+            <td th:text="*{size}"></td>
+            <td th:text="*{createdDate}"></td>
+            <td><a class="btn btn-default btn-xs" th:href="@{/gunclocks/{id}(id=*{id})}">参照</a></td>
+            <td><a class="btn btn-default btn-xs" th:href="@{/gunclocks/{id}/edit(id=*{id})}">編集</a></td>
+            <td>
+              <form th:action="@{/gunclocks/{id}/delete(id=*{id})}" th:method="delete">
+                <input class="btn btn-default btn-xs" type="submit" value="削除" />
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <a class="btn btn-default" href="/gunclocks/new">新規作成</a>
+    </div>
+  </body>
+</html>
