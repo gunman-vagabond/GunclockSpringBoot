@@ -3,7 +3,9 @@
 * install
 
     $ git clone https://github.com/gunman-vagabond/GunclockSpringBoot.git
+  
     $ cd GunclockSpringBoot
+  
     $ mvn install  (or $ mvnw install)
 
 * start
@@ -17,6 +19,7 @@
 * build jar / run jar
 
     $ mvnw clean package  (or $mvn install)
+  
     $ cd target
     $ java -jar Gunclock-0.0.1-SNAPSHOT.jar  [--server.port=8080]
 
